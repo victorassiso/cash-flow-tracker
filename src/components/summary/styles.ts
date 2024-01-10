@@ -1,10 +1,12 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 export const SummaryContainer = styled.section`
   width: 100%;
   max-width: 1120px;
   margin: 0 auto;
   padding: 0 1.5rem;
+
+  overflow-x: auto; /* or overflow-x: scroll; */
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -23,6 +25,7 @@ export const SummaryCard = styled.div<SummaryCardProps>`
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
+  min-width: 336px;
 
   border-radius: 6px;
   background-color: ${(props) => props.theme['gray-600']};
@@ -31,7 +34,7 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
   }
 
   span {
@@ -45,9 +48,8 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     color: ${(props) => props.theme['gray-100']};
   }
 
-  ${(props) =>
-    props.variant === 'green' &&
-    css`
-      background: ${(props) => props.theme['green-500']};
-    `}
+  background: ${(props) =>
+    props.variant === 'green'
+      ? props.theme['green-500']
+      : props.theme['gray-600']};
 `
