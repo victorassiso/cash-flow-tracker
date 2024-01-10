@@ -1,7 +1,7 @@
 import { Header } from '../../components/header'
 import { Summary } from '../../components/summary'
 import { TransactionsFilter } from './components/transactions-filter'
-import { TransactionsTable } from './components/transactions-table/index'
+import { TransactionsList } from './components/transactions-list'
 import { TransactionsContainer } from './styles'
 
 export function Transactions() {
@@ -11,7 +11,7 @@ export function Transactions() {
       <Summary />
       <TransactionsContainer>
         <TransactionsFilter />
-        <TransactionsTable />
+        <TransactionsList />
       </TransactionsContainer>
     </div>
   )
