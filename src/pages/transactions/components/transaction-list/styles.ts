@@ -10,7 +10,7 @@ export const Container = styled.div`
     gap: 0.5rem;
   }
 `
-export const List = styled.div`
+export const TransactionCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
