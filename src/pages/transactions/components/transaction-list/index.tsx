@@ -3,6 +3,7 @@ import { CalendarBlank, TagSimple } from 'phosphor-react'
 import { useContext } from 'react'
 
 import { TransactionsContext } from '../../../../contexts/transactions-context'
+import { dateFormatter, priceFormatter } from '../../../../utils/formatter'
 import {
   Container,
   Footer,
@@ -21,8 +22,8 @@ export function TransactionList() {
         <TransactionCard key={transaction.id}>
           <Title>{transaction.description}</Title>
           <Value variant={transaction.type}>
-            {transaction.type === 'outcome' ? '- ' : ''}
-            R$ {transaction.price.toFixed(2)}
+            {transaction.type === 'outcome' && '- '}
+            {priceFormatter.format(transaction.price)}
           </Value>
           <Footer>
             <FooterItem>
@@ -32,7 +33,7 @@ export function TransactionList() {
             <FooterItem>
               <CalendarBlank />
               <span>
-                {format(new Date('2024-01-10T12:50:20.819Z'), 'dd/MM/yyy')}
+                {dateFormatter.format(new Date(transaction.createdAt))}
               </span>
             </FooterItem>
           </Footer>
