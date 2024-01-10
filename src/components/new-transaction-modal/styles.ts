@@ -12,11 +12,20 @@ export const Overlay = styled(Dialog.Overlay)`
 
 export const Content = styled(Dialog.Content)`
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 32rem;
-  padding: 2.5rem 3rem;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+
+  @media screen and (min-width: 600px) {
+    width: auto;
+    bottom: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 32rem;
+    padding: 2.5rem 3rem;
+  }
 
   background: ${(props) => props.theme['gray-800']};
   border-radius: 6px;
