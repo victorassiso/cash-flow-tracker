@@ -16,6 +16,10 @@ export const TransactionsFilterContainer = styled.form`
     &::placeholder {
       color: ${(props) => props.theme['gray-500']};
     }
+
+    @media screen and (max-width: 600px) {
+      padding: 1.25rem;
+    }
   }
 
   button {
@@ -46,10 +50,15 @@ export const TransactionsFilterContainer = styled.form`
     }
 
     @media screen and (max-width: 600px) {
-      padding: 0.875rem;
+      padding: 1rem;
 
       span {
         display: none;
+      }
+
+      svg {
+        width: 24px;
+        height: auto;
       }
     }
   }

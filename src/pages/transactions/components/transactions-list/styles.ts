@@ -3,8 +3,12 @@ import { styled } from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
   margin: 1rem 0;
+
+  @media screen and (min-width: 600px) {
+    gap: 0.5rem;
+  }
 `
 export const List = styled.div`
   display: flex;
