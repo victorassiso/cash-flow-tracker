@@ -44,5 +44,13 @@ export const TransactionsFilterContainer = styled.form`
         border-color 0.2s,
         color 0.2s;
     }
+
+    @media screen and (max-width: 600px) {
+      padding: 0.875rem;
+
+      span {
+        display: none;
+      }
+    }
   }
 `

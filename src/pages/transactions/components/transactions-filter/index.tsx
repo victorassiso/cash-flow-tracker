@@ -8,7 +8,7 @@ export function TransactionsFilter() {
       <input type="text" placeholder="Busque uma transação" />
       <button type="submit">
         <MagnifyingGlass size={20} weight="bold" />
-        Buscar
+        <span>Buscar</span>
       </button>
     </TransactionsFilterContainer>
   )
