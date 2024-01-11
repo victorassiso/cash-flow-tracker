@@ -22,6 +22,8 @@ export function TransactionsContextProvider({
   async function fetchTransactions(query?: string) {
     const response = await api.get('/transactions', {
       params: {
+        _sort: 'createdAt',
+        _order: 'desc',
         q: query,
       },
     })
