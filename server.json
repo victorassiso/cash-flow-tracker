@@ -47,6 +47,30 @@
       "category": "Vestuário",
       "createdAt": "2024-01-11T16:05:16.364Z",
       "id": "IcMZq3M"
+    },
+    {
+      "title": "Camisa",
+      "value": 40,
+      "type": "outcome",
+      "category": "Vestuário",
+      "createdAt": "2024-01-11T16:29:58.464Z",
+      "id": "g2JOCb5"
+    },
+    {
+      "title": "Pizza",
+      "value": 60,
+      "type": "outcome",
+      "category": "Alimentação",
+      "createdAt": "2024-01-11T16:30:51.967Z",
+      "id": "5I2KZNl"
+    },
+    {
+      "title": "Cachorro quente",
+      "value": 10,
+      "type": "outcome",
+      "category": "Alimentação",
+      "createdAt": "2024-01-11T16:32:18.144Z",
+      "id": "j7PvEIu"
     }
   ]
 }
