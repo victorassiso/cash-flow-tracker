@@ -1,55 +1,11 @@
 import { ArrowCircleDown, ArrowCircleUp, CurrencyDollar } from 'phosphor-react'
-import { useContext } from 'react'
 
-import { TransactionsContext } from '../../contexts/transactions-context'
+import { useSummary } from '../../hooks/use-summary'
 import { priceFormatter, secondaryDateFormatter } from '../../utils/formatter'
 import { SummaryCard, SummaryContainer } from './styles'
 
 export function Summary() {
-  const { transactions } = useContext(TransactionsContext)
-
-  const summary = transactions.reduce(
-    (acc, transaction) => {
-      const transactionDate = new Date(transaction.createdAt)
-
-      if (transaction.type === 'income') {
-        acc.income.total += transaction.price
-        acc.total.total += transaction.price
-
-        if (transactionDate > acc.income.lastUpdate) {
-          acc.income.lastUpdate = transactionDate
-        }
-      } else {
-        acc.outcome.total += transaction.price
-        acc.total.total -= transaction.price
-
-        if (transactionDate > acc.outcome.lastUpdate) {
-          acc.outcome.lastUpdate = transactionDate
-        }
-      }
-
-      if (transactionDate > acc.total.lastUpdate) {
-        acc.total.lastUpdate = transactionDate
-      }
-
-      return acc
-    },
-    {
-      income: {
-        total: 0,
-        lastUpdate: new Date(),
-      },
-      outcome: {
-        total: 0,
-        lastUpdate: new Date(),
-      },
-      total: {
-        total: 0,
-        lastUpdate: new Date(),
-      },
-    },
-  )
-
+  const summary = useSummary()
   return (
     <SummaryContainer>
       {/* Income */}
@@ -59,12 +15,16 @@ export function Summary() {
           <ArrowCircleUp size={32} color="#00b37e" />
         </header>
 
-        <strong>{priceFormatter.format(summary.income.total)}</strong>
+        <strong>{priceFormatter.format(summary.income)}</strong>
         <footer>
-          <span>
-            Última entrada em{' '}
-            {secondaryDateFormatter.format(summary.income.lastUpdate)}
-          </span>
+          {summary.lastUpdate.income ? (
+            <span>
+              Última entrada em{' '}
+              {secondaryDateFormatter.format(summary.lastUpdate.income)}
+            </span>
+          ) : (
+            <span>Nenhuma entrada registrada</span>
+          )}
         </footer>
       </SummaryCard>
 
@@ -75,12 +35,16 @@ export function Summary() {
           <ArrowCircleDown size={32} color="#f75a68" />
         </header>
 
-        <strong>{priceFormatter.format(summary.outcome.total)}</strong>
+        <strong>{priceFormatter.format(summary.outcome)}</strong>
         <footer>
-          <span>
-            Última saída em{' '}
-            {secondaryDateFormatter.format(summary.outcome.lastUpdate)}
-          </span>
+          {summary.lastUpdate.outcome ? (
+            <span>
+              Última saída em{' '}
+              {secondaryDateFormatter.format(summary.lastUpdate.outcome)}
+            </span>
+          ) : (
+            <span>Nenhuma saída registrada</span>
+          )}
         </footer>
       </SummaryCard>
 
@@ -91,12 +55,16 @@ export function Summary() {
           <CurrencyDollar size={32} color="white" />
         </header>
 
-        <strong>{priceFormatter.format(summary.total.total)}</strong>
+        <strong>{priceFormatter.format(summary.total)}</strong>
         <footer>
-          <span>
-            Última transação em{' '}
-            {secondaryDateFormatter.format(summary.total.lastUpdate)}
-          </span>
+          {summary.lastUpdate.total ? (
+            <span>
+              Última transação em{' '}
+              {secondaryDateFormatter.format(summary.lastUpdate.total)}
+            </span>
+          ) : (
+            <span>Nenhuma transação registrada</span>
+          )}
         </footer>
       </SummaryCard>
     </SummaryContainer>
