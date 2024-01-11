@@ -39,7 +39,7 @@ export const Content = styled(Dialog.Content)`
     input {
       padding: 1rem;
 
-      background-color: ${(props) => props.theme['gray-900']};
+      background: ${(props) => props.theme['gray-900']};
       border: none;
       border-radius: 6px;
 
@@ -48,6 +48,16 @@ export const Content = styled(Dialog.Content)`
       &::placeholder {
         color: ${(props) => props.theme['gray-500']};
       }
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      /* Adjust the transition properties to an extremely long duration to effectively disable it */
+      transition:
+        background-color 500000s ease-in-out 0s,
+        color 500000s ease-in-out 0s;
     }
 
     button[type='submit'] {
