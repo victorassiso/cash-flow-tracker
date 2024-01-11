@@ -7,9 +7,9 @@ import { TransactionsContainer } from './styles'
 
 export interface Transaction {
   id: string
-  description: string
+  title: string
   type: 'income' | 'outcome'
-  price: number
+  value: number
   category: string
   createdAt: string
 }

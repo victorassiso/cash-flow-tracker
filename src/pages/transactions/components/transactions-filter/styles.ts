@@ -37,7 +37,7 @@ export const TransactionsFilterContainer = styled.form`
     color: ${(props) => props.theme['green-300']};
     font-weight: bold;
 
-    &:hover {
+    &:not(:disabled):hover {
       background-color: ${(props) => props.theme['green-500']};
       border-color: ${(props) => props.theme['green-500']};
 
@@ -49,6 +49,10 @@ export const TransactionsFilterContainer = styled.form`
         color 0.2s;
     }
 
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
     @media screen and (max-width: 600px) {
       padding: 1rem;
 

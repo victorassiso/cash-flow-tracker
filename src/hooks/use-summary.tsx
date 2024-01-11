@@ -21,11 +21,11 @@ export function useSummary() {
       const transactionDate = new Date(transaction.createdAt)
 
       if (transaction.type === 'income') {
-        acc.income += transaction.price
-        acc.total += transaction.price
+        acc.income += transaction.value
+        acc.total += transaction.value
       } else {
-        acc.outcome += transaction.price
-        acc.total -= transaction.price
+        acc.outcome += transaction.value
+        acc.total -= transaction.value
       }
 
       if (acc.lastUpdate.income) {

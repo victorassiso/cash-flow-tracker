@@ -65,12 +65,17 @@ export const Content = styled(Dialog.Content)`
       color: ${(props) => props.theme.white};
       font-weight: bold;
 
-      &:hover {
+      &:not(:disabled):hover {
         background: ${(props) => props.theme['green-700']};
         border-color: ${(props) => props.theme['green-700']};
         transition:
           background-color 0.2s,
           border-color 0.2s;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
       }
     }
   }
@@ -137,6 +142,7 @@ export const TransactionTypeButton = styled(
       transition: background-color 0.2s;
     }
   }
+
   &[data-state='checked'] {
     color: ${(props) => props.theme.white};
     background: ${(props) =>

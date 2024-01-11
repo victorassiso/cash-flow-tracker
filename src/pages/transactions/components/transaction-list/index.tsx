@@ -19,10 +19,10 @@ export function TransactionList() {
     <Container>
       {transactions.map((transaction) => (
         <TransactionCard key={transaction.id}>
-          <Title>{transaction.description}</Title>
+          <Title>{transaction.title}</Title>
           <Value variant={transaction.type}>
             {transaction.type === 'outcome' && '- '}
-            {priceFormatter.format(transaction.price)}
+            {priceFormatter.format(transaction.value)}
           </Value>
           <Footer>
             <FooterItem>
