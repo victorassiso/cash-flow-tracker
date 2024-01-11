@@ -50,16 +50,6 @@ export const Content = styled(Dialog.Content)`
       }
     }
 
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus,
-    input:-webkit-autofill:active {
-      /* Adjust the transition properties to an extremely long duration to effectively disable it */
-      transition:
-        background-color 500000s ease-in-out 0s,
-        color 500000s ease-in-out 0s;
-    }
-
     button[type='submit'] {
       display: flex;
       align-items: center;
