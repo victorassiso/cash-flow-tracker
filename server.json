@@ -31,6 +31,22 @@
       "category": "Alimentação",
       "value": 50,
       "createdAt": "2024-01-10T12:14:40.073Z"
+    },
+    {
+      "title": "Bermuda",
+      "value": 99,
+      "type": "outcome",
+      "category": "Vestuário",
+      "createdAt": "2024-01-11T16:02:51.905Z",
+      "id": "fWhoaMR"
+    },
+    {
+      "title": "Camisa",
+      "value": 120,
+      "type": "outcome",
+      "category": "Vestuário",
+      "createdAt": "2024-01-11T16:05:16.364Z",
+      "id": "IcMZq3M"
     }
   ]
 }
